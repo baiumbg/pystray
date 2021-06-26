@@ -17,7 +17,7 @@
 
 import ctypes
 
-from ctypes import windll, wintypes
+from ctypes import wintypes
 
 
 WM_CREATE = 0x0001
@@ -206,6 +206,7 @@ def _err(result, func, arguments):
 LPWNDCLASSEX = ctypes.POINTER(WNDCLASSEX)
 
 
+windll = ctypes.LibraryLoader(ctypes.WinDLL)
 CreatePopupMenu = windll.user32.CreatePopupMenu
 CreatePopupMenu.argtypes = ()
 CreatePopupMenu.restype = wintypes.HMENU
